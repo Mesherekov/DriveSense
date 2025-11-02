@@ -1,0 +1,11 @@
+<resources>
+    <string name="home_bar">Home</string>
+    <string name="person_bar">Person</string>
+    <string name="search_bar">Search</string>
+    <string name="share_trip">Share your impressions of your trip</string>
+    <string name="scan_qr">Scan the QR code</string>
+    <string name="routes_res">Recent routes</string>
+    <string name="reviews">My reviews</string>
+    <string name="help">Help</string>
+    <string name="recent_routes">Recent routes</string>
+</resources>
