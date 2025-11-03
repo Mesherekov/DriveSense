@@ -95,7 +95,7 @@ fun HomeScreen(
                 Row {
                     Card(
                         modifier = Modifier
-                            .height(100.dp)
+                            .height(110.dp)
                             .weight(1 / 2f)
                             .padding(5.dp)
                             .clickable{
@@ -126,7 +126,7 @@ fun HomeScreen(
                     }
                     Card(
                         modifier = Modifier
-                            .height(100.dp)
+                            .height(110.dp)
                             .weight(1 / 2f)
                             .padding(5.dp)
                             .clickable{
@@ -149,7 +149,7 @@ fun HomeScreen(
                             )
                             Text(
                                 stringResource(Res.string.routes_res),
-                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold,
                             )
                         }
                     }
@@ -157,7 +157,7 @@ fun HomeScreen(
                 Row {
                     Card(
                         modifier = Modifier
-                            .height(100.dp)
+                            .height(110.dp)
                             .weight(1 / 2f)
                             .padding(5.dp)
                             .clickable{
@@ -188,7 +188,7 @@ fun HomeScreen(
                     }
                     Card(
                         modifier = Modifier
-                            .height(100.dp)
+                            .height(110.dp)
                             .weight(1 / 2f)
                             .padding(5.dp)
                             .clickable{
@@ -221,7 +221,8 @@ fun HomeScreen(
                 Text(
                     stringResource(Res.string.recent_routes),
                     fontWeight = FontWeight.Bold,
-                    fontSize = 18.sp
+                    fontSize = 18.sp,
+                    modifier = Modifier.padding(3.dp)
                 )
             }
 
