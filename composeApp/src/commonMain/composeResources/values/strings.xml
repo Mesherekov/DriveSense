@@ -8,4 +8,10 @@
     <string name="reviews">My reviews</string>
     <string name="help">Help</string>
     <string name="recent_routes">Recent routes</string>
+    <string name="statistics">Statistics</string>
+    <string name="trips">Trips</string>
+    <string name="average">Average score</string>
+    <string name="reviews_driver">Reviews</string>
+    <string name="reviews_list">Reviews</string>
+
 </resources>

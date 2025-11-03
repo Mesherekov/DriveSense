@@ -20,6 +20,7 @@ import drivesense.composeapp.generated.resources.person_bar
 import org.city.drivesense.navigation.AccountScreen
 import org.city.drivesense.navigation.BottomNavBar
 import org.city.drivesense.navigation.BottomNavItem
+import org.city.drivesense.navigation.DriverScreen
 import org.city.drivesense.navigation.HomeScreen
 import org.city.drivesense.navigation.RootComponent
 import org.jetbrains.compose.resources.stringResource
@@ -60,12 +61,19 @@ fun App(rootComponent: RootComponent) {
                             .fillMaxWidth()
                             .padding(innerPadding))
                     is RootComponent.Child.HomeScreen -> {
-                        HomeScreen(
+                        DriverScreen(
                             instance.component,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(innerPadding)
                         )
+                    }
+                    is RootComponent.Child.DriverScreen -> {
+//                        DriverScreen(
+//                        instance.component,
+//                        Modifier
+//                            .fillMaxWidth()
+//                            .padding(innerPadding))
                     }
                 }
             }

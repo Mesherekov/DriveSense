@@ -35,6 +35,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import drivesense.composeapp.generated.resources.Res
@@ -120,7 +121,8 @@ fun HomeScreen(
                                 stringResource(
                                     Res.string.scan_qr
                                 ),
-                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center
                             )
                         }
                     }
@@ -150,7 +152,9 @@ fun HomeScreen(
                             Text(
                                 stringResource(Res.string.routes_res),
                                 fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center
                             )
+
                         }
                     }
                 }
@@ -182,7 +186,8 @@ fun HomeScreen(
                                 stringResource(
                                     Res.string.reviews
                                 ),
-                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center
                             )
                         }
                     }
@@ -211,7 +216,8 @@ fun HomeScreen(
                             )
                             Text(
                                 stringResource(Res.string.help),
-                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Center
                             )
                         }
                     }

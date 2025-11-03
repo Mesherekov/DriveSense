@@ -31,6 +31,8 @@ class RootComponent(
             Config.HomeScreen -> Child.HomeScreen(
                 HomeScreenComponent(context)
             )
+
+            Config.DriverScreen -> Child.DriverScreen(DriverScreenComponent(context))
         }
     }
     override fun navigateTo(route: Config){
@@ -46,6 +48,8 @@ class RootComponent(
     sealed class Child{
         data class HomeScreen(val component: HomeScreenComponent): Child()
         data class AccountScreen(val component: AccountScreenComponent): Child()
+        data class DriverScreen(val component: DriverScreenComponent): Child()
+
     }
 
     @Serializable
@@ -55,5 +59,7 @@ class RootComponent(
 
         @Serializable
         data object AccountScreen: Config()
+        @Serializable
+        data object DriverScreen: Config()
     }
 }

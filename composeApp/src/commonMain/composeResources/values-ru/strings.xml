@@ -9,4 +9,9 @@
 </string>
     <string name="help">Помощь</string>
     <string name="recent_routes">Недавние маршруты</string>
+    <string name="statistics">Статистика</string>
+    <string name="trips">Поездок</string>
+    <string name="average">Средний балл</string>
+    <string name="reviews_driver">Отзывов</string>
+    <string name="reviews_list">Отзывы</string>
 </resources>
