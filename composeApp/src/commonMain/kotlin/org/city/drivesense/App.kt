@@ -59,7 +59,8 @@ fun App(rootComponent: RootComponent) {
                     is RootComponent.Child.AccountScreen -> AccountScreen(instance.component,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(innerPadding))
+                            .padding(innerPadding),
+                        rootComponent)
                     is RootComponent.Child.HomeScreen -> {
                         HomeScreen(
                             instance.component,

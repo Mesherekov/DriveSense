@@ -63,53 +63,61 @@ fun DriverScreen(
                  ){
     var addReview by remember { mutableStateOf(false) }
     var listReview by remember { mutableStateOf(mutableListOf(ReviewData(
-        date = "19.05.2023",
-        rate = 5f,
-        name = "Bulka",
-        "Выехал на красный, так ещё и пьяный"
+        date = "15.03.2024",
+        rate = 3.4f,
+        name = "Анна Смирнова",
+        "Автобус опоздал на 20 минут"
     ),
         ReviewData(
-            date = "16.08.2025",
-            rate = 4.3f,
-            name = "Виктория",
-            "Приятный человек"
+            date = "28.02.2024",
+            rate = 2.3f,
+            name = "Дмитрий Козлов",
+            "Салон был очень грязным."
         ),
         ReviewData(
-            date = "19.05.2023",
-            rate = 5f,
-            name = "Bulka",
-            "Выехал на красный, так ещё и пьяный"
+            date = "01.03.2024",
+            rate = 3f,
+            name = "Елена Петрова",
+            "Водитель резко тормозил"
         ),
         ReviewData(
-            date = "16.08.2025",
-            rate = 4.3f,
-            name = "Виктория",
-            "Приятный человек"
+            date = "10.03.2025",
+            rate = 3.3f,
+            name = "Игорь Волков",
+            "Очень много народу, не продохнуть"
         ),
         ReviewData(
-            date = "19.05.2023",
-            rate = 5f,
-            name = "Bulka",
-            "Выехал на красный, так ещё и пьяный"
+            date = "20.02.2024",
+            rate = 2.6f,
+            name = "Сергей Морозов",
+            "Отопление не работало, было холодно"
         ),
         ReviewData(
-            date = "16.08.2025",
-            rate = 4.3f,
-            name = "Виктория",
-            "Приятный человек"
-        ),
-        ReviewData(
-            date = "19.05.2023",
-            rate = 5f,
-            name = "Bulka",
-            "Выехал на красный, так ещё и пьяный"
+            date = "12.03.2024",
+            rate = 2.0f,
+            name = "Ольга Зайцева",
+            "Остановка была пропущена."
         ),
         ReviewData(
             date = "16.08.2025",
-            rate = 4.3f,
-            name = "Виктория",
-            "Приятный человек"
-        ))) }
+            rate = 3.6f,
+            name = "Павел Крылов",
+            "Расписание не соблюдается."
+        ),
+        ReviewData(
+            date = "01.02.2025",
+            rate = 2.4f,
+            name = "Иван Иванов",
+            "Автобус опоздал на 30 минут."
+        ),
+        ReviewData(
+            date = "05.02.2025",
+            rate = 3.0f,
+            name = "Иван Иванов",
+            "Резко трогаются и тормозят."
+        )
+
+    )) }
     Column(modifier = modifier) {
         LazyColumn(
             Modifier
@@ -138,8 +146,7 @@ fun DriverScreen(
                         Column {
                             Row {
                                 Text(
-                                    "Равшан\n" +
-                                            "Кулисбегович",
+                                    "Григорий",
                                     fontSize = 20.sp
                                 )
                                 Box(

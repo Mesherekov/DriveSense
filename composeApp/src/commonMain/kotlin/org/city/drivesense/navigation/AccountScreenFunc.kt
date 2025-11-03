@@ -44,7 +44,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 fun AccountScreen(
     component: AccountScreenComponent,
-    modifier: Modifier = Modifier.fillMaxWidth()
+    modifier: Modifier = Modifier.fillMaxWidth(),
+    rootComponent: RootComponent
 ){
     Column(modifier) {
         Box(modifier = Modifier.fillMaxWidth(),
@@ -68,7 +69,7 @@ fun AccountScreen(
                     .size(80.dp)
                     .clip(CircleShape)
             )
-            Text("Виктор Купальцев",
+            Text("Иван Иванов",
                 fontSize = 27.sp,
                 fontWeight = FontWeight.Bold)
         }
@@ -84,55 +85,21 @@ fun AccountScreen(
                 }
                 itemsIndexed(listOf(
                     ReviewData(
-                        date = "19.05.2023",
-                        rate = 5f,
-                        name = "Bulka",
-                        "Выехал на красный, так ещё и пьяный"
+                        date = "01.02.2025",
+                        rate = 2.4f,
+                        name = "Иван Иванов",
+                        "Автобус опоздал на 30 минут."
                     ),
                     ReviewData(
-                        date = "16.08.2025",
-                        rate = 4.3f,
-                        name = "Виктория",
-                        "Приятный человек"
-                    ),
-                    ReviewData(
-                        date = "19.05.2023",
-                        rate = 5f,
-                        name = "Bulka",
-                        "Выехал на красный, так ещё и пьяный"
-                    ),
-                    ReviewData(
-                        date = "16.08.2025",
-                        rate = 4.3f,
-                        name = "Виктория",
-                        "Приятный человек"
-                    ),
-                    ReviewData(
-                        date = "19.05.2023",
-                        rate = 5f,
-                        name = "Bulka",
-                        "Выехал на красный, так ещё и пьяный"
-                    ),
-                    ReviewData(
-                        date = "16.08.2025",
-                        rate = 4.3f,
-                        name = "Виктория",
-                        "Приятный человек"
-                    ),
-                    ReviewData(
-                        date = "19.05.2023",
-                        rate = 5f,
-                        name = "Bulka",
-                        "Выехал на красный, так ещё и пьяный"
-                    ),
-                    ReviewData(
-                        date = "16.08.2025",
-                        rate = 4.3f,
-                        name = "Виктория",
-                        "Приятный человек"
+                        date = "05.02.2025",
+                        rate = 3.0f,
+                        name = "Иван Иванов",
+                        "Резко трогаются и тормозят."
                     )
                 )){_, item ->
-                    MyReviewItem(item)
+                    MyReviewItem(
+                        item,
+                        rootComponent = rootComponent)
 
                 }
             }
@@ -142,16 +109,18 @@ fun AccountScreen(
 }
 @Preview(showBackground = true)
 @Composable
-fun MyReviewItem(reviewData: ReviewData = ReviewData(date = "19.05.2023",
+fun MyReviewItem(
+    reviewData: ReviewData = ReviewData(date = "19.05.2023",
     rate = 5f,
     name = "Bulka",
     "Выехал на красный, так ещё и пьяный"
-)){
+),
+    rootComponent: RootComponent){
     Card(modifier = Modifier
         .fillMaxWidth()
         .padding(5.dp)
         .clickable{
-
+            rootComponent.navigateToCanBack(RootComponent.Config.DriverScreen)
         },
         elevation = CardDefaults.elevatedCardElevation(6.dp),
         colors = CardDefaults.cardColors(
@@ -168,6 +137,9 @@ fun MyReviewItem(reviewData: ReviewData = ReviewData(date = "19.05.2023",
                     .size(36.dp)
             )
             Column {
+                Text("Маршрут 22",
+                    fontSize = 14.sp,
+                    color = Color.DarkGray)
                 Text(reviewData.review,
                     modifier = Modifier.widthIn(max = 200.dp))
                 Text(reviewData.date,
