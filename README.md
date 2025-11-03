@@ -19,7 +19,7 @@ in your IDE’s toolbar or build it directly from the terminal:
 - on macOS/Linux
   ```shell
   ./gradlew :composeApp:assembleDebug
-  ```
+  ```cls
 - on Windows
   ```shell
   .\gradlew.bat :composeApp:assembleDebug

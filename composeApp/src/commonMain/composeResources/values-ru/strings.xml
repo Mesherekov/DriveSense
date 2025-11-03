@@ -1,0 +1,18 @@
+<resources>
+    <string name="home_bar">Главная</string>
+    <string name="person_bar">Аккаунт</string>
+    <string name="search_bar">Поиск</string>
+    <string name="share_trip">Поделитесь впечатлениями о вашей поездке</string>
+    <string name="scan_qr">Сканировать QR код</string>
+    <string name="routes_res">Последние маршруты</string>
+    <string name="reviews">Мои отзывы
+</string>
+    <string name="help">Помощь</string>
+    <string name="recent_routes">Недавние маршруты</string>
+    <string name="statistics">Статистика</string>
+    <string name="trips">Поездок</string>
+    <string name="average">Средний балл</string>
+    <string name="reviews_driver">Отзывов</string>
+    <string name="reviews_list">Отзывы</string>
+    <string name="reviews_write">Написать отзыв</string>
+</resources>
