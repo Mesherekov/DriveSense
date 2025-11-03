@@ -14,20 +14,21 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.DirectionsBus
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Send
 import androidx.compose.material.icons.filled.StarRate
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -37,6 +38,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -59,6 +61,55 @@ fun DriverScreen(
     driverScreenComponent: DriverScreenComponent,
     modifier: Modifier = Modifier.fillMaxWidth()
                  ){
+    var addReview by remember { mutableStateOf(false) }
+    var listReview by remember { mutableStateOf(mutableListOf(ReviewData(
+        date = "19.05.2023",
+        rate = 5f,
+        name = "Bulka",
+        "Выехал на красный, так ещё и пьяный"
+    ),
+        ReviewData(
+            date = "16.08.2025",
+            rate = 4.3f,
+            name = "Виктория",
+            "Приятный человек"
+        ),
+        ReviewData(
+            date = "19.05.2023",
+            rate = 5f,
+            name = "Bulka",
+            "Выехал на красный, так ещё и пьяный"
+        ),
+        ReviewData(
+            date = "16.08.2025",
+            rate = 4.3f,
+            name = "Виктория",
+            "Приятный человек"
+        ),
+        ReviewData(
+            date = "19.05.2023",
+            rate = 5f,
+            name = "Bulka",
+            "Выехал на красный, так ещё и пьяный"
+        ),
+        ReviewData(
+            date = "16.08.2025",
+            rate = 4.3f,
+            name = "Виктория",
+            "Приятный человек"
+        ),
+        ReviewData(
+            date = "19.05.2023",
+            rate = 5f,
+            name = "Bulka",
+            "Выехал на красный, так ещё и пьяный"
+        ),
+        ReviewData(
+            date = "16.08.2025",
+            rate = 4.3f,
+            name = "Виктория",
+            "Приятный человек"
+        ))) }
     Column(modifier = modifier) {
         LazyColumn(
             Modifier
@@ -109,6 +160,16 @@ fun DriverScreen(
                                     contentDescription = null
                                 )
                                 Text("4.5")
+                                Button(onClick = {
+                                    addReview = !addReview
+                                },
+                                    shape = RoundedCornerShape(6.dp),
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = Color(0xFF3E92F4)
+                                    ),
+                                    modifier = Modifier.padding(4.dp)){
+                                    Text(stringResource(Res.string.reviews_write))
+                                }
                             }
 
                         }
@@ -221,56 +282,7 @@ fun DriverScreen(
                 )
             }
             itemsIndexed(
-                listOf(
-                    ReviewData(
-                        date = "19.05.2023",
-                        rate = 5f,
-                        name = "Bulka",
-                        "Выехал на красный, так ещё и пьяный"
-                    ),
-                    ReviewData(
-                        date = "16.08.2025",
-                        rate = 4.3f,
-                        name = "Виктория",
-                        "Приятный человек"
-                    ),
-                    ReviewData(
-                        date = "19.05.2023",
-                        rate = 5f,
-                        name = "Bulka",
-                        "Выехал на красный, так ещё и пьяный"
-                    ),
-                    ReviewData(
-                        date = "16.08.2025",
-                        rate = 4.3f,
-                        name = "Виктория",
-                        "Приятный человек"
-                    ),
-                    ReviewData(
-                        date = "19.05.2023",
-                        rate = 5f,
-                        name = "Bulka",
-                        "Выехал на красный, так ещё и пьяный"
-                    ),
-                    ReviewData(
-                        date = "16.08.2025",
-                        rate = 4.3f,
-                        name = "Виктория",
-                        "Приятный человек"
-                    ),
-                    ReviewData(
-                        date = "19.05.2023",
-                        rate = 5f,
-                        name = "Bulka",
-                        "Выехал на красный, так ещё и пьяный"
-                    ),
-                    ReviewData(
-                        date = "16.08.2025",
-                        rate = 4.3f,
-                        name = "Виктория",
-                        "Приятный человек"
-                    )
-                )
+                listReview
             ) { _, item ->
                 ReviewItem(item)
             }
@@ -279,37 +291,56 @@ fun DriverScreen(
 
 
     }
-    Box(modifier.fillMaxSize(),
-        contentAlignment = Alignment.BottomCenter){
-        var inputValue by remember { mutableStateOf("") }
-        OutlinedTextField(
-            value = inputValue,
-            onValueChange = { inputValue = it },
-            label = {
-                Text(stringResource(Res.string.reviews_write))
-            },
-            modifier = Modifier.fillMaxWidth(),
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color(0xFF3E92F4),
-                unfocusedContainerColor = Color(0xFF3E92F4),
-                disabledContainerColor = Color(0xFF3E92F4),
-                focusedLabelColor = Color.Transparent,
-                unfocusedLabelColor = Color.White,
-                disabledLabelColor = Color.Black,
-                disabledTextColor = Color.White,
-                focusedTextColor = Color.White,
-                unfocusedTextColor = Color.White
-            ),
-            trailingIcon = {
-                IconButton(onClick = {}) {
-                    Icon(
-                        Icons.AutoMirrored.Filled.Send,
-                        contentDescription = "send",
-                        tint = Color.White
-                    )
+    if (addReview) {
+        Box(
+            modifier.fillMaxSize(),
+            contentAlignment = Alignment.BottomCenter
+        ) {
+            var isFocused by remember { mutableStateOf(false) }
+            var inputValue by remember { mutableStateOf("") }
+            OutlinedTextField(
+                value = inputValue,
+                onValueChange = { inputValue = it },
+                label = {
+                    if (inputValue.isEmpty()) {
+                        Text(stringResource(Res.string.reviews_write),
+                            Modifier.background(if(isFocused) Color(0xFF3E92F4) else Color.Transparent))
+                    }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .onFocusChanged { focusState ->
+                        isFocused = focusState.isFocused
+                    },
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedContainerColor = Color(0xFF3E92F4),
+                    unfocusedContainerColor = Color(0xFF3E92F4),
+                    disabledContainerColor = Color(0xFF3E92F4),
+                    focusedLabelColor = Color.White,
+                    unfocusedLabelColor = Color.White,
+                    disabledLabelColor = Color.Black,
+                    disabledTextColor = Color.White,
+                    focusedTextColor = Color.White,
+                    unfocusedTextColor = Color.White
+                ),
+                trailingIcon = {
+                    IconButton(onClick = {
+                        addReview = false
+                        listReview.add(ReviewData(date = "03.11.2025",
+                            rate = 5f,
+                            name = "Виктор",
+                            review = inputValue
+                            ))
+                    }) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.Send,
+                            contentDescription = "send",
+                            tint = Color.White
+                        )
+                    }
                 }
-            }
-        )
+            )
+        }
     }
 
 }
