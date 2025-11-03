@@ -61,20 +61,20 @@ fun App(rootComponent: RootComponent) {
                             .fillMaxWidth()
                             .padding(innerPadding))
                     is RootComponent.Child.HomeScreen -> {
-                        DriverScreen(
+                        HomeScreen(
                             instance.component,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(innerPadding)
+                                .padding(innerPadding),
+                            rootComponent
                         )
                     }
-                    is RootComponent.Child.DriverScreen -> {
-//                        DriverScreen(
-//                        instance.component,
-//                        Modifier
-//                            .fillMaxWidth()
-//                            .padding(innerPadding))
-                    }
+                    is RootComponent.Child.DriverScreen -> DriverScreen(
+                        instance.component,
+                        Modifier
+                            .fillMaxWidth()
+                            .padding(innerPadding))
+
                 }
             }
         }

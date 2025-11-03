@@ -54,7 +54,8 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun HomeScreen(
     component: HomeScreenComponent,
-    modifier: Modifier = Modifier.fillMaxWidth()
+    modifier: Modifier = Modifier.fillMaxWidth(),
+    rootComponent: RootComponent
 ){
     var searchText by remember { mutableStateOf("") }
     var isSearchActive by remember { mutableStateOf(false) }
@@ -249,7 +250,8 @@ fun HomeScreen(
                     "09:53"
                 )
                 )){_, item ->
-                TripItem(item)
+                TripItem(item,
+                    rootComponent)
             }
 
 
@@ -262,14 +264,15 @@ fun HomeScreen(
 
 @Composable
 fun TripItem(
-    transportRoute: TransportRoute
+    transportRoute: TransportRoute,
+    rootComponent: RootComponent
 ){
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(4.dp)
             .clickable{
-
+                rootComponent.navigateToCanBack(RootComponent.Config.DriverScreen)
             },
         elevation = CardDefaults.elevatedCardElevation(10.dp),
         colors = CardDefaults.cardColors(

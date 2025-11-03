@@ -46,6 +46,7 @@ import drivesense.composeapp.generated.resources.Res
 import drivesense.composeapp.generated.resources.average
 import drivesense.composeapp.generated.resources.reviews_driver
 import drivesense.composeapp.generated.resources.reviews_list
+import drivesense.composeapp.generated.resources.reviews_write
 import drivesense.composeapp.generated.resources.statistics
 import drivesense.composeapp.generated.resources.trips
 import org.city.drivesense.db.ReviewData
@@ -55,10 +56,9 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Preview(showBackground = true)
 @Composable
 fun DriverScreen(
-    driverScreenComponent: HomeScreenComponent,
+    driverScreenComponent: DriverScreenComponent,
     modifier: Modifier = Modifier.fillMaxWidth()
                  ){
-
     Column(modifier = modifier) {
         LazyColumn(
             Modifier
@@ -286,14 +286,14 @@ fun DriverScreen(
             value = inputValue,
             onValueChange = { inputValue = it },
             label = {
-                Text("Написать отзыв")
+                Text(stringResource(Res.string.reviews_write))
             },
             modifier = Modifier.fillMaxWidth(),
             colors = OutlinedTextFieldDefaults.colors(
                 focusedContainerColor = Color(0xFF3E92F4),
                 unfocusedContainerColor = Color(0xFF3E92F4),
                 disabledContainerColor = Color(0xFF3E92F4),
-                focusedLabelColor = Color(0xFF3E92F4),
+                focusedLabelColor = Color.Transparent,
                 unfocusedLabelColor = Color.White,
                 disabledLabelColor = Color.Black,
                 disabledTextColor = Color.White,

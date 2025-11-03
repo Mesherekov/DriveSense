@@ -13,5 +13,7 @@
     <string name="average">Average score</string>
     <string name="reviews_driver">Reviews</string>
     <string name="reviews_list">Reviews</string>
+    <string name="reviews_write">Write a review</string>
+
 
 </resources>

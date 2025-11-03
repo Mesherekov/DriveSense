@@ -3,6 +3,9 @@ package org.city.drivesense.navigation
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
+import com.arkivanov.decompose.router.stack.navigate
+import com.arkivanov.decompose.router.stack.pop
+import com.arkivanov.decompose.router.stack.pushNew
 import com.arkivanov.decompose.router.stack.replaceCurrent
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.builtins.serializer
@@ -37,6 +40,15 @@ class RootComponent(
     }
     override fun navigateTo(route: Config){
         navigation.replaceCurrent(route)
+    }
+
+    override fun navigateToCanBack(route: Config) {
+        navigation.replaceCurrent(
+            route
+        )
+    }
+    fun goBack(){
+        navigation.pop()
     }
 
     override fun getRoute(): String {
