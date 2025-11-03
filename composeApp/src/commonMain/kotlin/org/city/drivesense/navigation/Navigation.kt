@@ -22,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.arkivanov.decompose.router.stack.active
+import org.city.drivesense.navigation.RootComponent.Config
 
 
 data class BottomNavItem(
@@ -47,7 +48,11 @@ fun BottomNavBar(
             val selected = isSelected == item.route
             NavigationBarItem(
                 selected = selected,
-                onClick = { rootComponent.navigateTo(item.route)
+                onClick = {
+                    if (rootComponent.childStack.active.configuration == Config.DriverScreen){
+                        rootComponent.onBackPressed()
+                    }
+                    rootComponent.navigateTo(item.route)
                     isSelected = rootComponent.childStack.active.configuration
                 },
                 colors = NavigationBarItemDefaults.colors(

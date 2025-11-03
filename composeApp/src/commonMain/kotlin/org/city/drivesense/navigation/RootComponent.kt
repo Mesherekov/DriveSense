@@ -5,6 +5,7 @@ import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.navigate
 import com.arkivanov.decompose.router.stack.pop
+import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.router.stack.pushNew
 import com.arkivanov.decompose.router.stack.replaceCurrent
 import kotlinx.serialization.Serializable
@@ -43,12 +44,17 @@ class RootComponent(
     }
 
     override fun navigateToCanBack(route: Config) {
-        navigation.replaceCurrent(
+        navigation.push(
             route
         )
     }
-    fun goBack(){
-        navigation.pop()
+    fun onBackPressed(): Boolean {
+        return if (childStack.value.backStack.isNotEmpty()) {
+            navigation.pop()
+            true
+        } else {
+            false
+        }
     }
 
     override fun getRoute(): String {
